@@ -8,7 +8,6 @@ Feature: Authentication
 		Given user "<admin>" is logged in
 		Then go to site "rijkshuisstijl"
 		Then go to controle panel
-		Then do something else using "test"
 		Then logout
 
 		Examples:
