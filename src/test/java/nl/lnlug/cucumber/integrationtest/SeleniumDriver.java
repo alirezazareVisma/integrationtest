@@ -31,7 +31,7 @@ public class SeleniumDriver {
 	 * @return WebDriver which will be used for running integration tests
 	 */
 	public static WebDriver getInstance() {
-		return getInstance(SupportedSeleniumDrivers.PHANTOMJS);
+		return getInstance(SupportedSeleniumDrivers.FIREFOX);
 	}
 
 	/**
