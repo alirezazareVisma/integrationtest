@@ -20,8 +20,7 @@ public class AuthenticationDriver extends GenericDriver {
 	 * @param password
 	 */
 	public static void login(String loginName, String password) {
-		//state.getServerUrl()
-		getWebDriver().get("http://localhost:8080/"+LOGIN_URL);
+		getWebDriver().get(state.getServerUrl()+LOGIN_URL);
 		if (!state.getCurrentUser().isEmpty()) {
 			if (!state.getCurrentUser().equals(loginName)) {
 				logout();
@@ -34,7 +33,7 @@ public class AuthenticationDriver extends GenericDriver {
 			loginInput.clear();
 			loginInput.sendKeys(loginName);
 			getWebDriver().findElement(By.id("_58_password")).sendKeys(password);
-			getWebDriver().findElement(By.className("aui-button-input-submit"))
+			getWebDriver().findElement(By.className("btn-primary"))
 			.submit();
 			getWebDriver().findElement(By.className("sign-out"));
 			

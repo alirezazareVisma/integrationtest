@@ -1,12 +1,13 @@
 package nl.lnlug.cucumber.integrationtest.steps;
 
+import nl.lnlug.cucumber.integrationtest.ScreenshotHook;
 import nl.lnlug.cucumber.integrationtest.driver.AuthenticationDriver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
 /**
  * Cucumber steps related to authentication.
- *
+ * 
  */
 public class AuthenticationSteps {
 
@@ -35,11 +36,18 @@ public class AuthenticationSteps {
 		AuthenticationDriver.login(userName, password);
 	}
 
+	/**
+	 * 
+	 * @throws Throwable
+	 */
 	@Then("^go to controle panel$")
 	public void go_to_controle_panel() throws Throwable {
-	   AuthenticationDriver.goToControlePanel();
+		Thread.sleep(5000);
+		AuthenticationDriver.goToControlePanel();
+		ScreenshotHook.createScreenshot("LNLUG");
+		Thread.sleep(5000);
 	}
-	
+
 	/**
 	 * Logs out in EPE
 	 * 
@@ -49,10 +57,5 @@ public class AuthenticationSteps {
 	public void logout() {
 		AuthenticationDriver.logout();
 	}
-	
-	@Then("^do something else using \"([^\"]*)\"$")
-	public void do_something_else_using(String arg1) throws Throwable {
-	}
-
 
 }

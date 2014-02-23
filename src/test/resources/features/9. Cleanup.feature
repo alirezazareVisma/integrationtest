@@ -4,4 +4,4 @@ Feature: Test cleanup
   
 @cleanup
 Scenario: Close connections
-	Then close database connections
+	Then close connections

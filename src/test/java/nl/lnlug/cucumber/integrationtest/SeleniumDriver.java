@@ -15,7 +15,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
- * Utility class to define the web driver to use while running integration tests
+ * Utility class to define which web driver to use while running integration tests
  * 
  * @author azare
  *
@@ -102,8 +102,6 @@ public class SeleniumDriver {
 		desiredCapabilities.setCapability(CapabilityType.HAS_NATIVE_EVENTS,
 				true);
 
-		// PhantomJSDriver atm does not support alerts
-		// newCapabilities.setCapability(CapabilityType.SUPPORTS_ALERTS, true);
 		desiredCapabilities.setJavascriptEnabled(true);
 
 		ArrayList<String> cliArgs = new ArrayList<String>();

@@ -6,7 +6,6 @@ Feature: Authentication
 	Scenario Outline: Invite and register a user
 		
 		Given user "<admin>" is logged in
-		Then go to site "rijkshuisstijl"
 		Then go to controle panel
 		Then logout
 
