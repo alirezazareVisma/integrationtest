@@ -1,14 +1,16 @@
 #language: en
 @it @manual
-Feature: Authentication 
-	Dummy feature to login and logout
-	
-	Scenario Outline: Invite and register a user
-		
-		Given user "<admin>" is logged in
-		Then go to controle panel
-		Then logout
+Feature: Deactivate user
+  This feature is used to test user deactivation
 
-		Examples:
-			| admin				| 
-			| test@liferay.com	| 
+  Scenario Outline: Login as admin and deactivate user
+    Given user "<admin>" is logged in
+    When go to controle panel
+    Then deactivate user "test.dlc.1@liferay.com"
+  	Then activate user "test.dlc.1@liferay.com"
+    Then logout
+
+    Examples: 
+      | admin            |
+      | test@liferay.com |
+     

@@ -49,15 +49,18 @@ public class ScreenshotHook {
 	 * Create a screenshot to file
 	 */
 	public static void createScreenshot(String fileName) {
-		File fileSrc = ((TakesScreenshot) SeleniumDriver.getInstance())
-				.getScreenshotAs(OutputType.FILE);
+		if (SeleniumDriver.getInstance() instanceof TakesScreenshot) {
 
-		try {
-			File destFile = new File("target/cucumber-screenshots/" + fileName + ".png");
-			FileUtils.copyFile(fileSrc, destFile);
-			System.out.println(destFile.getAbsolutePath());
-		} catch (IOException e) {
-			// Ignore silently
+			File fileSrc = ((TakesScreenshot) SeleniumDriver.getInstance())
+					.getScreenshotAs(OutputType.FILE);
+	
+			try {
+				File destFile = new File("target/cucumber-screenshots/" + fileName + ".png");
+				FileUtils.copyFile(fileSrc, destFile);
+				System.out.println(destFile.getAbsolutePath());
+			} catch (IOException e) {
+				// Ignore silently
+			}
 		}
 	}
 }

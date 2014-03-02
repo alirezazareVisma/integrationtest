@@ -1,9 +1,12 @@
 package nl.lnlug.cucumber.integrationtest.steps;
 
-import nl.lnlug.cucumber.integrationtest.ScreenshotHook;
-import nl.lnlug.cucumber.integrationtest.driver.AuthenticationDriver;
+import static org.junit.Assert.assertNotNull;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import nl.lnlug.cucumber.integrationtest.ScreenshotHook;
+import nl.lnlug.cucumber.integrationtest.driver.AuthenticationDriver;
+
+import org.openqa.selenium.WebElement;
 
 /**
  * Cucumber steps related to authentication.
@@ -21,19 +24,9 @@ public class AuthenticationSteps {
 	@Given("^user \"(.+)\" is logged in$")
 	@Then("^login as \"([^\"]*)\"$")
 	public void loginUser(String userName) {
-		AuthenticationDriver.login(userName, DEFAULT_PASSWORD);
-	}
-
-	/**
-	 * Logs in to EPE using the given login name and password
-	 * 
-	 * @param userName
-	 * @param password
-	 * @throws Throwable
-	 */
-	@Then("^login to EPE as \"([^\"]*)\", \"([^\"]*)\"$")
-	public void loginAs(String userName, String password) {
-		AuthenticationDriver.login(userName, password);
+		WebElement logoutElement = AuthenticationDriver.login(userName,
+				DEFAULT_PASSWORD);
+		assertNotNull("Logout element is not found.", logoutElement);
 	}
 
 	/**
@@ -42,20 +35,22 @@ public class AuthenticationSteps {
 	 */
 	@Then("^go to controle panel$")
 	public void go_to_controle_panel() throws Throwable {
-		Thread.sleep(5000);
 		AuthenticationDriver.goToControlePanel();
 		ScreenshotHook.createScreenshot("LNLUG");
-		Thread.sleep(5000);
 	}
 
 	/**
-	 * Logs out in EPE
+	 * Logs out in Portal
 	 * 
 	 * @throws Throwable
 	 */
 	@Then("^logout$")
 	public void logout() {
 		AuthenticationDriver.logout();
+	}
+
+	@Then("^ik do iets$")
+	public void ik_do_iets() throws Throwable {
 	}
 
 }

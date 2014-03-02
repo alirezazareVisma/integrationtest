@@ -24,13 +24,11 @@ public class GenericSteps {
 		GenericDriver.getState().setServerUrl(serverUrl);
 	}
 
-	
 	/**
 	 * @throws Throwable
 	 */
 	@Then("^close connections$")
 	public void close_connections() throws Throwable {
 	}
-
 
 }
