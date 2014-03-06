@@ -25,10 +25,14 @@ public class GenericSteps {
 	}
 
 	/**
+	 * This method is used to clean up your connections after running tests
+	 * 
 	 * @throws Throwable
 	 */
 	@Then("^close connections$")
 	public void close_connections() throws Throwable {
+		
+		// Clean up your db connection or do any other stuff when you are done 
 	}
 
 }

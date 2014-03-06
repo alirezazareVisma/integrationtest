@@ -5,10 +5,10 @@ Feature: Deactivate user
 
   Scenario Outline: 
   	Login as admin and deactivate user
+  	
     Given user "<admin>" is logged in
     When go to controle panel
     Then deactivate user "test.dlc.1@liferay.com"
-  	Then activate user "test.dlc.1@liferay.com"
     Then logout
 
     Examples: 

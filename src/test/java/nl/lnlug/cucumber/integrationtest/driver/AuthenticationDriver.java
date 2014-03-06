@@ -14,7 +14,7 @@ public class AuthenticationDriver extends GenericDriver {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(AuthenticationDriver.class);
 	
-	private static final String CONTROL_PANEL_URL = "/group/control_panel";
+	private static final String CONTROL_PANEL_URL = "group/control_panel";
 	protected static final String LOGOUT_URL = "c/portal/logout";
 	protected static final String LOGIN_URL = "c/portal/login";
 	/**

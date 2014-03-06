@@ -5,5 +5,5 @@ package nl.lnlug.cucumber.integrationtest;
  *
  */
 public enum SupportedSeleniumDrivers {
-	FIREFOX, IE, CHROME, PHANTOMJS, HTMLUNIT;
+	FIREFOX, PHANTOMJS;
 }

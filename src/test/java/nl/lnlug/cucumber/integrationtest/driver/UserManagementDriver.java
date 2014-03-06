@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 public class UserManagementDriver extends GenericDriver {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(UserManagementDriver.class);
-	private static final String FIND_USER_URL = "/group/control_panel/manage?p_p_id=125&125_struts_action=%2Fusers_admin%2Fview_users&_125_usersListView=flat-users&_125_keywords=";
+	private static final String FIND_USER_URL = "group/control_panel/manage?p_p_id=125&125_struts_action=%2Fusers_admin%2Fview_users&_125_usersListView=flat-users&_125_keywords=";
 
 	public static void removeUser(String emailAddress)
 			throws InterruptedException {
@@ -83,7 +83,7 @@ public class UserManagementDriver extends GenericDriver {
 						By.xpath("//a/img[contains(@src, 'html/themes/control_panel/images/common/activate.png')]"));
 
 		webElement.findElement(By.xpath("..")).click();
-		;
+		
 
 	}
 

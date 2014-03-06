@@ -8,7 +8,6 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
@@ -42,15 +41,12 @@ public class SeleniumDriver {
 	public static WebDriver getInstance(SupportedSeleniumDrivers supportedDriver) {
 		if (driver == null) {
 			switch (supportedDriver) {
-			case FIREFOX:
-				driver = createFireFoxDriver();
-				break;
-			case HTMLUNIT:
-				driver = createHtmlUnitDriver();
-				break;
 			case PHANTOMJS:
-			default:
 				driver = createPhantomJSDriver();
+				break;
+			case FIREFOX:
+			default:
+				driver = createFireFoxDriver();
 				break;
 			}
 
@@ -73,14 +69,6 @@ public class SeleniumDriver {
 				.setCapability(FirefoxDriver.PROFILE, firefoxProfile);
 
 		return new FirefoxDriver(desiredCapabilities);
-	}
-
-	private static WebDriver createHtmlUnitDriver() {
-		DesiredCapabilities desiredCapabilities = DesiredCapabilities
-				.htmlUnitWithJs();
-		desiredCapabilities.setCapability(CapabilityType.SUPPORTS_ALERTS, true);
-
-		return new HtmlUnitDriver(desiredCapabilities);
 	}
 
 	private static WebDriver createPhantomJSDriver() {

@@ -26,19 +26,20 @@ public class UserManagementSteps {
 		el = UserManagementDriver.findUser(emailAddress, "5");
 		assertNotNull("User is not deactivated " + emailAddress, el);
 	}
+	
+//	/**
+//	 * Activate a given user
+//	 * @param emailAddress
+//	 * @throws Throwable
+//	 */
+//	@Then("^activate user \"([^\"]*)\"$")
+//	public void activate_user(String emailAddress) throws Throwable {
+//		WebElement el = UserManagementDriver.findUser(emailAddress, "5");
+//		assertNotNull("Could not find deactived user " + emailAddress, el);
+//		UserManagementDriver.activateUser(emailAddress);
+//		el = UserManagementDriver.findUser(emailAddress, "0");
+//		assertNotNull("User is not activated " + emailAddress, el);
+//	}
 
-	/**
-	 * Activate a given user
-	 * @param emailAddress
-	 * @throws Throwable
-	 */
-	@Then("^activate user \"([^\"]*)\"$")
-	public void activate_user(String emailAddress) throws Throwable {
-		WebElement el = UserManagementDriver.findUser(emailAddress, "5");
-		assertNotNull("Could not find deactived user " + emailAddress, el);
-		UserManagementDriver.activateUser(emailAddress);
-		el = UserManagementDriver.findUser(emailAddress, "0");
-		assertNotNull("User is not activated " + emailAddress, el);
-	}
 
 }
