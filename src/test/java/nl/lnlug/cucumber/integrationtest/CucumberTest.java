@@ -33,7 +33,7 @@ public class CucumberTest {
 	@BeforeClass
 	public static void setup() {
 		LOG.trace("setup()");
-		
+
 		SeleniumDriver.getInstance();
 	}
 

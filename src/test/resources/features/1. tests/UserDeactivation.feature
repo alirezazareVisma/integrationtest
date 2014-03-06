@@ -14,4 +14,3 @@ Feature: Deactivate user
     Examples: 
       | admin            |
       | test@liferay.com |
-     
